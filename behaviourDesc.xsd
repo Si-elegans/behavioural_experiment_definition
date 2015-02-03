@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:bhv="http://si-elegans.eu/ns/behaviourDesc"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    targetNamespace="http://si-elegans.eu/ns/behaviourDesc"
+    xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xs"
+    elementFormDefault="qualified" attributeFormDefault="unqualified"
+    version="Behaviour Modelling 0.1">
+    <xs:annotation>
+        <xs:documentation>
+            <dc:title xml:lang="en-US">C.elegans Behavior Experiment Definition</dc:title>
+            <dc:creator>Gorka Epelde Unanue, Vicomtech-IK4</dc:creator>
+            <dc:publisher xml:lang="en-US">Vicomtech-IK4</dc:publisher>
+            <dc:description xml:lang="en-US">This is the XML schema for C.elegans Behavior Experiment Definition</dc:description>
+            <dc:language xml:lang="en-US">English</dc:language>
+            <dcterms:issued>2014-11-18</dcterms:issued>
+            <dcterms:modified>2014-12-03</dcterms:modified>
+            <dc:rights xml:lang="en-US">Copyright 2014 Vicomtech-IK4</dc:rights>
+        </xs:documentation>
+    </xs:annotation>
+    <!--<xs:import namespace="http://www.w3.org/2001/XMLSchema"
+        schemaLocation="http://www.w3.org/2001/XMLSchema.xsd"/>-->
+    <xs:element name="behaviourExperiment" type="bhv:behaviourExperimentType">
+        <xs:annotation>
+            <xs:documentation>Root element</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="behaviourExperimentType">
+        <xs:annotation>
+            <xs:documentation>Type for root element of C.elegans Behavior Experiment Definition</xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="experimentDefinition" type="bhv:experimentType"/>
+            <xs:element name="environmentDefinition" type="bhv:environmentType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="about" type="xs:anyURI" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en">Globally unique name (URI) of  described.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="mechanosensationTimeEventType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">This type... </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="mechanoInteraction" type="bhv:mechanoInteractionType"/>
+            <xs:element name="appliedForce" type="bhv:appliedForceType"/>
+            <xs:element name="touchLocation" type="bhv:touchLocationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Only applicable if interaction is of touchType (non-tap)
+                !!GE: Not sure if we should define touches in specific areas or allow the user to do the touch anywhere</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="mechanosensationTimet0tot1Type">
+        <xs:annotation>
+            <xs:documentation>No mechanosensation from time t0 to t1 experiment defined yet.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="mechanosensationExpWideType">
+        <xs:annotation>
+            <xs:documentation>No mechanosensation experiment-wide experiment defined yet.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="chemotaxisTimeEventType">
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="dropTest">
+                <xs:annotation>
+                    <xs:documentation>In this assay, a small drop of repellent is delivered near the tail of an animal while it moves forward. Once in contact with the tail, the drop surrounds the entire animal by capillary action reaching the anterior sensory organs. The combination of chemotaxiQuadrant and dropTest can cover Wormbooks' 4.2.1 Soluble compound aversion assay.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="chemicalComposition" type="bhv:chemicalCompositionType"/>
+                        <xs:element name="dropLocation" type="bhv:positionFromPlateCentreType"/>
+                    </xs:sequence>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="dropQuantity">
+                        <xs:annotation>
+                            <xs:documentation>The amount of dropped chemical in µl.</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="chemotaxisTimet0tot1Type">
+        <xs:annotation>
+            <xs:documentation>No chemotaxi from time t0 to t1 experiment defined yet.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="chemotaxisExperimentWideType">
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element name="chemotaxisQuadrants">
+                    <xs:annotation>
+                        <xs:documentation>In this type of test the plate is divided in quadrants and different quadrants are filled with different chemical compounds, and where the worms go is monitored</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="4" name="quadrant"
+                                type="bhv:chemicalCompositionType"/>
+                            <xs:element name="quadrantBarrier" type="bhv:chemicalCompositionType"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID"/>
+                        <xs:attribute name="numberOfQuadrants">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:nonNegativeInteger">
+                                    <xs:minInclusive value="1"/>
+                                    <xs:maxInclusive value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="quadrantsPlacement">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="diagonal"/>
+                                    <xs:enumeration value="sidebyside"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="osmoticRing">
+                    <xs:annotation>
+                        <xs:documentation>This type of test involve putting the worm in the middle of a chemical compound ring and to check how it gets out of it</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="ringChemical" type="bhv:chemicalCompositionType">
+                                <xs:annotation>
+                                    <xs:documentation>!!GE: This chemical has the same gradient at all or the chemical is placed in an specific place. Figure 2 in wormbook looks like it is this way</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:choice>
+                        <xs:attribute name="id" type="xs:ID"/>
+                        <xs:attribute name="internalRadius">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:float">
+                                    <xs:minInclusive value="0"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="externalRadius">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:float">
+                                    <xs:minInclusive value="0"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="chemicalCategory">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="chemicalQuadrants"/>
+                    <xs:enumeration value="osmoticRing"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="termotaxisTimeEventType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="pointSourceHeatAvoidance">
+                <xs:annotation>
+                    <xs:documentation>The reported experiments, say they are done by pointing the worm in the nose with the heat source.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="heatPointLocation" type="bhv:touchLocationType"/>
+                    </xs:sequence>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="temperature" type="xs:float">
+                        <xs:annotation>
+                            <xs:documentation>Understood as Celsius</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="termotaxisTimet0tot1Type">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="temperatureChangeInTime">
+                <xs:annotation>
+                    <xs:documentation>Using top level experimentDuration, and considering linear increase/decrease, we can know the temperature in each timestep.
+                        
+                        !!GE: I understand 6.2 microdroplet assay as changing microdroplets temperature in time and checking worm's swimming behaviour. I understand that temperature is the same in all the microdroplet / plate</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="initialTemperature" type="xs:float"/>
+                    <xs:attribute name="finalTemperature" type="xs:float"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="termotaxisExperimentWideType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="linearThermalGradient">
+                <xs:annotation>
+                    <xs:documentation>Knowing the plate size, and considering linear the temperature gradieng, the temperature in each area is can be calculated.
+                        
+                        !!GE: Do both 6.1 and 6.3 try to achieve a thermal gradient. Is it linear in both cases?</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="temperatureLeftHorizontal" type="xs:float"/>
+                    <xs:attribute name="temperatureRightHorizonal" type="xs:float"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="galvanotaxisTimeEventType">
+        <xs:annotation>
+            <xs:documentation>No galvanotaxi from time event experiment defined yet.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="galvanotaxisTimet0tot1Type">
+        <xs:annotation>
+            <xs:documentation>No galvanotaxi from t0 to t1 experiment defined yet.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="galvanotaxisExperimentWideType">
+        <xs:annotation>
+            <xs:documentation>No galvanotaxi experiment-wide experiment defined yet.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="experimentType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="interactionAtSpecificTime" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:choice maxOccurs="1">
+                        <xs:element name="mechanosensation" type="bhv:mechanosensationTimeEventType"/>
+                        <xs:element name="chemotaxis" type="bhv:chemotaxisTimeEventType"/>
+                        <xs:element name="termotaxis" type="bhv:termotaxisTimeEventType">
+                            <xs:annotation>
+                                <xs:documentation>!!GE: Cultivation temperature should be part of worm definition, neuron models, network and weights, as I understand it.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="galvanotaxis" type="bhv:galvanotaxisTimeEventType">
+                            <xs:annotation>
+                                <xs:documentation>!!GE: Wormbook does not include galvanotaxis, need to check someother papers</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:choice>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="eventTime" type="xs:nonNegativeInteger">
+                        <xs:annotation>
+                            <xs:documentation>Time passed from experiment start until the interaction event. Duration in seconds.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="experimentCategory">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="mechanosensation"/>
+                                <xs:enumeration value="chemotaxis"/>
+                                <xs:enumeration value="termotaxis"/>
+                                <xs:enumeration value="galvanotaxis"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="interactionFromt0tot1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:choice maxOccurs="1">
+                        <xs:element name="mechanosensation"
+                            type="bhv:mechanosensationTimet0tot1Type"/>
+                        <xs:element name="chemotaxis" type="bhv:chemotaxisTimet0tot1Type"/>
+                        <xs:element name="termotaxis" type="bhv:termotaxisTimet0tot1Type">
+                            <xs:annotation>
+                                <xs:documentation>!!GE: Cultivation temperature should be part of worm definition, neuron models, network and weights, as I understand it.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="galvanotaxis" type="bhv:galvanotaxisTimet0tot1Type">
+                            <xs:annotation>
+                                <xs:documentation>!!GE: Wormbook does not include galvanotaxis, need to check someother papers</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:choice>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="eventStartTime" type="xs:nonNegativeInteger">
+                        <xs:annotation>
+                            <xs:documentation>Time passed from experiment start until the eventStart time. Time in seconds.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="eventStopTime" type="xs:nonNegativeInteger">
+                        <xs:annotation>
+                            <xs:documentation>Time passed from experiment start until the eventStop time. Time in seconds.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="experimentCategory">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="mechanosensation"/>
+                                <xs:enumeration value="chemotaxis"/>
+                                <xs:enumeration value="termotaxis"/>
+                                <xs:enumeration value="galvanotaxis"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="experimentWideConf" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:choice maxOccurs="1">
+                        <xs:element name="mechanosensation" type="bhv:mechanosensationExpWideType"/>
+                        <xs:element name="chemotaxis" type="bhv:chemotaxisExperimentWideType"/>
+                        <xs:element name="termotaxis" type="bhv:termotaxisExperimentWideType">
+                            <xs:annotation>
+                                <xs:documentation>!!GE: Cultivation temperature should be part of worm definition, neuron models, network and weights, as I understand it.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="galvanotaxis" type="bhv:galvanotaxisExperimentWideType">
+                            <xs:annotation>
+                                <xs:documentation>!!GE: Wormbook does not include galvanotaxis, need to check someother papers</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:choice>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="type">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="mechanosensation"/>
+                                <xs:enumeration value="chemotaxis"/>
+                                <xs:enumeration value="termotaxis"/>
+                                <xs:enumeration value="galvanotaxis"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="experimentCategory">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="mechanosensation"/>
+                                <xs:enumeration value="chemotaxis"/>
+                                <xs:enumeration value="termotaxis"/>
+                                <xs:enumeration value="galvanotaxis"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="experimentDuration" type="xs:nonNegativeInteger">
+            <xs:annotation>
+                <xs:documentation>With this value, experiments that require a linear calculation related to experiment duration can be done.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="environmentType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="wormStatus" type="bhv:wormStatusType"/>
+            <xs:element name="plateConfiguration">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="shape" type="bhv:shapeType">
+                            <xs:annotation>
+                                <xs:documentation>!!GE: Not sure if I can use shapeType here, but could be valid</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="dryness" type="xs:float"/>
+                    <xs:attribute name="lid" type="xs:boolean" default="false"/>
+                    <xs:attribute name="bottomMaterial">
+                        <xs:annotation>
+                            <xs:documentation>!!GE: I'm not sure about the collision this might have with the chemotaxis definition. 
+!!GE: I'm not sure if we should put properties of the bottomMaterials</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="Water"/>
+                                <xs:enumeration value="Gelatin"/>
+                                <xs:enumeration value="Agar"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="obstacle" maxOccurs="unbounded" minOccurs="0" type="bhv:obstacleType"> </xs:element>
+            <xs:element name="crowding">
+                <xs:annotation>
+                    <xs:documentation>Actual emulations focus on a single worm, but future emulation might support many of them, and some experimenters have reported that worms perform poorer in crowded plates</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="wormsInPlate" type="xs:nonNegativeInteger">
+                        <xs:annotation>
+                            <xs:documentation>Number of worms in the plate, beside the one being the centre of the study</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="wormsDistributionInPlate">
+                        <xs:annotation>
+                            <xs:documentation>!!GE: Worms distribution options need to be defined. Ideally should be based on different distribution functions with few parameter. (Low priority). This will require to define a new complex-type to handle the different function options and their variables.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="mechanoInteractionType">
+        <xs:choice>
+            <xs:element name="directWormTouchDetails" type="bhv:directWormTouchType"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="interactionType">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="plateTap"/>
+                    <xs:enumeration value="directWormTouch"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="directWormTouchType">
+        <xs:choice>
+            <xs:element name="touchInstrument" type="bhv:touchInstrumentType"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:simpleType name="appliedForceType" id="appliedForceTypeId">
+        <xs:annotation>
+            <xs:documentation>
+                Applied force for mechanosensation in the touch mechanointeraction. Range 1µN  to 100µN(inclusive bounds), stepsize 1. 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="touchInstrumentType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Eyebrow">
+                <xs:annotation>
+                    <xs:documentation>
+                        Usually used in gentle touch experiments                
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Von Frey hair">
+                <xs:annotation>
+                    <xs:documentation>
+                     Usually used in gentle touch experiments                
+                 </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Platinium wire">
+                <xs:annotation>
+                    <xs:documentation>
+                     Usually used in harsh touch experiments                
+                 </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="touchLocationType">
+        <xs:annotation>
+            <xs:documentation>
+                For defining the touch location, the worm is considered as a cylinder and the distance from the head and the angle of the cylinder at which the worm is touched are considered         
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="touchDistance" type="bhv:touchDistanceType"/>
+            <xs:element name="touchAngle" type="bhv:angleType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:simpleType name="touchDistanceType">
+        <xs:annotation>
+            <xs:documentation>
+                touchDistanceType is considered the point at which the worm is touched starting from its head, considering the starting head point as 0.          
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:unsignedInt">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="angleType">
+        <xs:annotation>
+            <xs:documentation>
+                angleType is considered the angle at which the worm is touched, considering the worm a cylinder          
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="6.28318"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="wormStatusType">
+        <xs:annotation>
+            <xs:documentation>!!GE: I've left Cultivation conditions and genotype / phenotype (neuron + network configuration for us?)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="wormInitialPosition" type="bhv:objectPositionType"/>
+            <xs:element name="wormData">
+                <xs:annotation>
+                    <xs:documentation>!!GE: Not sure wether to leave attributes or to have them as subelements</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="gender">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="Male"/>
+                                <xs:enumeration value="Female Hermaphrodites"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="age" type="xs:nonNegativeInteger">
+                        <xs:annotation>
+                            <xs:documentation>This time is defined as hours after molt to adulthood.
+!! GE: Alternatives: Hours since an egg was laid at a specified temperature / Number of eggs in the uterus</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="stageOfLifeCycle">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:nonNegativeInteger">
+                                <xs:minInclusive value="1"/>
+                                <xs:maxInclusive value="4"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="timeOffFood" type="xs:nonNegativeInteger">
+                        <xs:annotation>
+                            <xs:documentation>Given in seconds</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="obstacleType">
+        <xs:sequence>
+            <xs:element name="shape" type="bhv:shapeType"/>
+            <xs:element name="location" type="bhv:objectPositionType">
+                <xs:annotation>
+                    <xs:documentation>!!GE: I'm not saying wether they would be lying down or standing up.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Stiffness">
+                <xs:annotation>
+                    <xs:documentation>Stiffness is the resistance of an elastic body to deflection by an applied force and is measured in newtons per meter. 
+
+Hardness is the characteristic of a solid material expressing its resistance to permanent deformation. Hardness can be measured on the Mohs scale or various other scales.There are three principal operational definitions of hardness: 
+- Scratch hardness 
+- Indentation hardness 
+- Rebound, dynamic or absolute hardness</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="value">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="objectPositionType">
+        <xs:sequence>
+            <xs:element name="PositionFromPlateCentre" type="bhv:positionFromPlateCentreType"> </xs:element>
+            <xs:element name="OrientationRelativeXaxis">
+                <xs:annotation>
+                    <xs:documentation>Angle of how the object is placed considering the object's centerline</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="angle" type="bhv:angleType"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="shapeType">
+        <xs:choice>
+            <xs:element name="Cylinder">
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="radius">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="length">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Cube">
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="side1Length">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="side2Length">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="depth">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Hexagon">
+                <xs:annotation>
+                    <xs:documentation>Refers to regular Hexagon</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="sideLength">
+                        <xs:annotation>
+                            <xs:documentation>A regular hexagon has all sides of the same length, and that length is also the radius of the circumscribed circle. All internal angles are 120 degrees</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="depth">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Hair">
+                <xs:annotation>
+                    <xs:documentation>This shape - obstacle is thought for example for the head withdrawal experiment.
+I'm considering it as a cylinder (length, radius) which if folded following an angle</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:ID"/>
+                    <xs:attribute name="length">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="radius">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                                <xs:maxInclusive value="6.28318"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="foldAngle">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float">
+                                <xs:minInclusive value="0"/>
+                                <xs:maxInclusive value="6.28318"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="chemicalCompositionType">
+        <xs:annotation>
+            <xs:documentation>!!GE: Size / dimension is not needed, since we've got plate dimensions configured in the environment, and based on its shape and numberOfQuadrants, we can figure out the dimensions and shape of the quadrant. Assumption: all quadrants are symmetrical and they have the same size</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="chemical" type="bhv:chemicalType">
+                <xs:annotation>
+                    <xs:documentation>!!GE: This chemical has the same gradient at all or the chemical is placed in an specific place. Figure 2 in wormbook looks like it is this way</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="chemicalConcentration">
+            <xs:annotation>
+                <xs:documentation>Chemical concentration used in the specific scenario. No quantity is defined since the configuration is the quadrant's final concentration of that chemical.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:float">
+                    <xs:minInclusive value="0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+    <xs:complexType name="chemicalType">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute form="unqualified" name="isVolatile" type="xs:boolean" default="false"/>
+        <xs:attribute name="volatilitySpeed">
+            <xs:simpleType>
+                <xs:restriction base="xs:float">
+                    <xs:minInclusive value="0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="positionFromPlateCentreType">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="xCoord" type="xs:float"/>
+        <xs:attribute name="yCoorD" type="xs:float"/>
+    </xs:complexType>
+</xs:schema>
