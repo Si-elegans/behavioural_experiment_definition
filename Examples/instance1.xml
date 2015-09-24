@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bhv:behaviourExperiment xmlns:ns1="http://purl.org/dc/terms/"
+ xmlns:ns3="http://purl.org/dc/elements/1.1/"
+ xmlns:ns4="http://purl.org/dc/dcmitype/"
+ xmlns:bhv="http://si-elegans.eu/ns/behaviourDesc"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://si-elegans.eu/ns/behaviourDesc file:/C:/sources/sielegans/src/webPlatform/behaviouralShemaModel/behaviourDesc.xsd" about="http://www.oxygenxml.com/" id="ID000">  
+    <bhv:experimentDefinition>        
+        <bhv:interactionAtSpecificTime eventTime="PT5S">
+            <bhv:chemotaxis>
+                <bhv:description></bhv:description>
+                <bhv:dropTest dropQuantity="0.5">
+                    <bhv:chemicalComposition>
+                        <bhv:chemical isVolatile="false" name="CaCl2"/>                        
+                    </bhv:chemicalComposition>
+                    <bhv:dropLocation xCoord="10" yCoorD="10"/>
+                </bhv:dropTest>
+            </bhv:chemotaxis>
+        </bhv:interactionAtSpecificTime>
+        <bhv:interactionAtSpecificTime eventTime="PT10S">
+           <bhv:mechanosensation>               
+               <bhv:mechanoInteraction>
+                   <bhv:directWormTouch>
+                       <bhv:touchInstrument>Eyebrow</bhv:touchInstrument>
+                   </bhv:directWormTouch>
+               </bhv:mechanoInteraction>
+               <bhv:appliedForce>5</bhv:appliedForce>
+               <bhv:touchLocation>
+                   <bhv:touchDistance>5</bhv:touchDistance>
+                   <bhv:touchAngle>3.14159</bhv:touchAngle>
+               </bhv:touchLocation>
+           </bhv:mechanosensation>
+            <bhv:chemotaxis>                
+                <bhv:dropTest dropQuantity="0.5">
+                    <bhv:chemicalComposition>
+                        <bhv:chemical isVolatile="false" name="CaCl2"/>                        
+                    </bhv:chemicalComposition>
+                    <bhv:dropLocation xCoord="10" yCoorD="10"/>
+                </bhv:dropTest>
+            </bhv:chemotaxis>            
+        </bhv:interactionAtSpecificTime>
+        <bhv:interactionFromt0tot1 eventStartTime="PT20S" eventStopTime="PT30S">
+            <bhv:termotaxis>
+                <bhv:temperatureChangeInTime initialTemperature="5" finalTemperature="10"/>
+            </bhv:termotaxis>            
+        </bhv:interactionFromt0tot1>
+        <bhv:experimentWideConf>
+            <bhv:chemotaxis>                
+                <bhv:chemotaxisQuadrants numberOfQuadrants="4" quadrantsPlacement="diagonal">
+                    <bhv:quadrant chemicalConcentration="0.5">
+                        <bhv:chemical isVolatile="false" name="MgSO4"/>
+                    </bhv:quadrant>
+                    <bhv:quadrantBarrier chemicalConcentration="0.5">
+                        <bhv:chemical isVolatile="false" name="NH4Cl"/>
+                    </bhv:quadrantBarrier>
+                </bhv:chemotaxisQuadrants>                
+            </bhv:chemotaxis>
+        </bhv:experimentWideConf>
+    </bhv:experimentDefinition>
+    <bhv:environmentDefinition>        
+        <bhv:wormStatus>
+            <bhv:wormInitialPosition>
+                <bhv:PositionFromPlateCentre yCoorD="0" xCoord="0"/>
+                <bhv:OrientationRelativeToXaxis angle="3.14159"/>
+            </bhv:wormInitialPosition>
+            <bhv:wormData age="PT120S" gender="Female Hermaphrodites" stageOfLifeCycle="4" timeOffFood="PT30S"/>
+        </bhv:wormStatus>
+        <bhv:plateConfiguration bottomMaterial="Agar" dryness="0.5" lid="false">
+            <bhv:shape>
+                <bhv:Cylinder length="2" radius="3"/>
+            </bhv:shape>
+        </bhv:plateConfiguration>
+        <bhv:obstacle>
+            <bhv:shape>
+                <bhv:Cube depth="3" side1Length="3" side2Length="3"/>
+            </bhv:shape>
+            <bhv:location>
+                <bhv:PositionFromPlateCentre xCoord="1" yCoorD="1"/>
+                <bhv:OrientationRelativeToXaxis angle="3.14159"/>
+            </bhv:location>
+        </bhv:obstacle>        
+        <bhv:crowding wormsInPlate="1"/>        
+    </bhv:environmentDefinition>
+</bhv:behaviourExperiment>
