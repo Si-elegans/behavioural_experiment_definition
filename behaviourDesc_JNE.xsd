@@ -1,0 +1,451 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:byte" name="id"/>
+        <xs:element name="experimentDefinition">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interactionAtSpecificTime">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="list-item" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="mechanosensation" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="directTouch" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="directTouchInstrument"/>
+                                      <xs:element type="xs:float" name="touchDistance"/>
+                                      <xs:element type="xs:float" name="touchAngle"/>
+                                      <xs:element type="xs:float" name="appliedForce"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="plateTap" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:float" name="appliedForce"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="description"/>
+                                <xs:element type="xs:string" name="interactionType"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="termotaxis" minOccurs="0"/>
+                          <xs:element type="xs:string" name="galvanotaxis" minOccurs="0"/>
+                          <xs:element type="xs:string" name="phototaxis" minOccurs="0"/>
+                          <xs:element name="chemotaxis" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="dynamicDropTestConf">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:float" name="dropQuantity"/>
+                                      <xs:element type="xs:float" name="chemicalConcentration"/>
+                                      <xs:element type="xs:float" name="xCoordFromPlateCentre"/>
+                                      <xs:element type="xs:float" name="yCoordFromPlateCentre"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="description"/>
+                                <xs:element type="xs:string" name="chemotaxisType"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="description"/>
+                          <xs:element type="xs:float" name="eventTime"/>
+                          <xs:element type="xs:string" name="experimentCategory"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="interactionFromt0tot1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="list-item" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="mechanosensation" minOccurs="0"/>
+                          <xs:element type="xs:string" name="chemotaxis" minOccurs="0"/>
+                          <xs:element name="termotaxis" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="temperatureChangeInTime" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:float" name="initialTemperature"/>
+                                      <xs:element type="xs:float" name="finalTemperature"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="pointSourceHeatAvoidance" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:float" name="temperature"/>
+                                      <xs:element type="xs:float" name="heatPointDistance"/>
+                                      <xs:element type="xs:float" name="heatPointAngle"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="description"/>
+                                <xs:element type="xs:string" name="termotaxisType"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="galvanotaxis" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="electricShockConf">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:float" name="amplitude"/>
+                                      <xs:element type="xs:byte" name="shockDuration"/>
+                                      <xs:element type="xs:float" name="shockFrequency"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="description"/>
+                                <xs:element type="xs:string" name="galvanotaxisType"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="phototaxis" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="pointSourceLightConf">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:float" name="waveLength"/>
+                                      <xs:element type="xs:float" name="intensity"/>
+                                      <xs:element type="xs:float" name="lightingPointDistance"/>
+                                      <xs:element type="xs:float" name="lightBeamRadius"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="description"/>
+                                <xs:element type="xs:string" name="phototaxisType"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="description"/>
+                          <xs:element type="xs:byte" name="eventStartTime"/>
+                          <xs:element type="xs:byte" name="eventStopTime"/>
+                          <xs:element type="xs:string" name="experimentCategory"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="experimentWideConf">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="list-item" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="mechanosensation" minOccurs="0"/>
+                          <xs:element name="chemotaxis" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="chemotaxisQuadrants1" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="quadrantChemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:float" name="quadrantChemicalConcentration"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="osmoticRing" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="ringChemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:float" name="chemicalConcentration"/>
+                                      <xs:element type="xs:float" name="internalRadius"/>
+                                      <xs:element type="xs:float" name="externalRadius"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="chemotaxisQuadrants2" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="quadrant_1_Chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="quadrant_2_Chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="quadrantBarrierChemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:float" name="quadrant_1_ChemicalConcentration"/>
+                                      <xs:element type="xs:float" name="quadrant_2_ChemicalConcentration"/>
+                                      <xs:element type="xs:float" name="quadrantBarrierChemicalConcentration"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="chemotaxisQuadrants4" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="quadrant_1_Chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="quadrant_2_Chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="quadrant_3_Chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="quadrant_4_Chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="quadrantBarrierChemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:float" name="quadrant_1_ChemicalConcentration"/>
+                                      <xs:element type="xs:float" name="quadrant_2_ChemicalConcentration"/>
+                                      <xs:element type="xs:float" name="quadrant_3_ChemicalConcentration"/>
+                                      <xs:element type="xs:float" name="quadrant_4_ChemicalConcentration"/>
+                                      <xs:element type="xs:float" name="quadrantBarrierChemicalConcentration"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="staticPointSourceConf" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="chemical">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:float" name="diffusionCoefficient"/>
+                                            <xs:element type="xs:string" name="chemical_name"/>
+                                            <xs:element type="xs:string" name="isVolatile"/>
+                                            <xs:element type="xs:float" name="volatilitySpeed"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:float" name="dropQuantity"/>
+                                      <xs:element type="xs:float" name="chemicalConcentration"/>
+                                      <xs:element type="xs:float" name="xCoordFromPlateCentre"/>
+                                      <xs:element type="xs:float" name="yCoordFromPlateCentre"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="description"/>
+                                <xs:element type="xs:string" name="chemicalCategory"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="termotaxis" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="linearThermalGradient">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:float" name="temperatureRightHorizonal"/>
+                                      <xs:element type="xs:float" name="temperatureLeftHorizontal"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="description"/>
+                                <xs:element type="xs:string" name="termotaxisType"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="galvanotaxis" minOccurs="0"/>
+                          <xs:element type="xs:string" name="phototaxis" minOccurs="0"/>
+                          <xs:element type="xs:string" name="description"/>
+                          <xs:element type="xs:string" name="experimentCategory"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="description"/>
+              <xs:element type="xs:short" name="experimentDuration"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="environmentDefinition">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="wormStatus">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="wormData">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="gender"/>
+                          <xs:element type="xs:byte" name="age"/>
+                          <xs:element type="xs:byte" name="stageOfLifeCycle"/>
+                          <xs:element type="xs:byte" name="timeOffFood"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:float" name="xCoordFromPlateCentre"/>
+                    <xs:element type="xs:float" name="yCoorDFromPlateCentre"/>
+                    <xs:element type="xs:float" name="angleRelativeXaxis"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="plateConfiguration">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Cylinder">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:float" name="length"/>
+                          <xs:element type="xs:float" name="radius"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="lid"/>
+                    <xs:element type="xs:string" name="bottomMaterial"/>
+                    <xs:element type="xs:float" name="dryness"/>
+                    <xs:element type="xs:string" name="shape"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="obstacle" minOccurs="0" >
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="list-item" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Cylinder" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:float" name="length"/>
+                                <xs:element type="xs:float" name="radius"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Hexagon" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:float" name="depth"/>
+                                <xs:element type="xs:float" name="sideLength"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:float" name="xCoordFromPlateCentre"/>
+                          <xs:element type="xs:float" name="yCoorDFromPlateCentre"/>
+                          <xs:element type="xs:float" name="Stiffness"/>
+                          <xs:element type="xs:string" name="shape"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="crowding">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="wormsDistributionInPlate"/>
+                    <xs:element type="xs:byte" name="wormsInPlate"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="description"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element type="xs:string" name="about"/>
+        <xs:element type="xs:string" name="public"/>
+        <xs:element type="xs:dateTime" name="public_set_date"/>
+        <xs:element type="xs:string" name="description"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
