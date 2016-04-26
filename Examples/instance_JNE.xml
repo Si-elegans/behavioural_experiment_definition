@@ -38,22 +38,7 @@
                 <eventStartTime>8</eventStartTime>
                 <eventStopTime>16</eventStopTime>
                 <experimentCategory>PT</experimentCategory>
-            </list-item>
-            <list-item>
-                <galvanotaxis>
-                    <electricShockConf>
-                        <amplitude>28.3</amplitude>
-                        <shockDuration>29</shockDuration>
-                        <shockFrequency>26.88</shockFrequency>
-                    </electricShockConf>
-                    <description>new galvano interval NaN</description>
-                    <galvanotaxisType>ES</galvanotaxisType>
-                </galvanotaxis>
-                <description>ElectroShock</description>
-                <eventStartTime>10</eventStartTime>
-                <eventStopTime>15</eventStopTime>
-                <experimentCategory>GT</experimentCategory>
-            </list-item>
+            </list-item>            
         </interactionFromt0tot1>
         <experimentWideConf>
             <list-item>
@@ -72,47 +57,7 @@
                 </chemotaxis>
                 <description>Quadrant</description>
                 <experimentCategory>CT</experimentCategory>
-            </list-item>
-            <list-item>
-                <chemotaxis>
-                    <chemotaxisQuadrants1>
-                        <quadrantChemical>
-                            <diffusionCoefficient>0.0</diffusionCoefficient>
-                            <chemical_name>Lys</chemical_name>
-                            <isVolatile>True</isVolatile>
-                            <volatilitySpeed>0.0</volatilitySpeed>
-                        </quadrantChemical>
-                        <quadrantChemicalConcentration>0.0</quadrantChemicalConcentration>
-                    </chemotaxisQuadrants1>
-                    <chemotaxisQuadrants2>
-                        <quadrant_1_Chemical>
-                            <diffusionCoefficient>0.0</diffusionCoefficient>
-                            <chemical_name>HM</chemical_name>
-                            <isVolatile>True</isVolatile>
-                            <volatilitySpeed>0.0</volatilitySpeed>
-                        </quadrant_1_Chemical>
-                        <quadrant_2_Chemical>
-                            <diffusionCoefficient>0.0</diffusionCoefficient>
-                            <chemical_name>QUININE</chemical_name>
-                            <isVolatile>True</isVolatile>
-                            <volatilitySpeed>0.0</volatilitySpeed>
-                        </quadrant_2_Chemical>
-                        <quadrantBarrierChemical>
-                            <diffusionCoefficient>0.0</diffusionCoefficient>
-                            <chemical_name>Cd</chemical_name>
-                            <isVolatile>True</isVolatile>
-                            <volatilitySpeed>0.0</volatilitySpeed>
-                        </quadrantBarrierChemical>
-                        <quadrant_1_ChemicalConcentration>32.9</quadrant_1_ChemicalConcentration>
-                        <quadrant_2_ChemicalConcentration>64.8</quadrant_2_ChemicalConcentration>
-                        <quadrantBarrierChemicalConcentration>87.2</quadrantBarrierChemicalConcentration>
-                    </chemotaxisQuadrants2>
-                    <description>new chemo permanent 3</description>
-                    <chemicalCategory>CQ2</chemicalCategory>
-                </chemotaxis>
-                <description>New Permanent</description>
-                <experimentCategory>CT</experimentCategory>
-            </list-item>
+            </list-item>          
         </experimentWideConf>
         <description/>
         <experimentDuration>38</experimentDuration>
