@@ -11,9 +11,6 @@
                         <touchAngle>1.0</touchAngle>
                         <appliedForce>27.2</appliedForce>
                     </directTouch>
-                    <plateTap>
-                        <appliedForce>0.0</appliedForce>
-                    </plateTap>
                     <description>new mechano exact 37</description>
                     <interactionType>DWT</interactionType>
                 </mechanosensation>
@@ -38,17 +35,14 @@
                 <eventStartTime>8</eventStartTime>
                 <eventStopTime>16</eventStopTime>
                 <experimentCategory>PT</experimentCategory>
-            </list-item>            
+            </list-item>
         </interactionFromt0tot1>
         <experimentWideConf>
             <list-item>
                 <chemotaxis>
                     <chemotaxisQuadrants1>
-                        <quadrantChemical>
-                            <diffusionCoefficient>0.0</diffusionCoefficient>
-                            <chemical_name>cAMP</chemical_name>
-                            <isVolatile>True</isVolatile>
-                            <volatilitySpeed>0.0</volatilitySpeed>
+                        <quadrantChemical>                            
+                            <chemical_name>cAMP</chemical_name>                            
                         </quadrantChemical>
                         <quadrantChemicalConcentration>14.8</quadrantChemicalConcentration>
                     </chemotaxisQuadrants1>
@@ -57,9 +51,8 @@
                 </chemotaxis>
                 <description>Quadrant</description>
                 <experimentCategory>CT</experimentCategory>
-            </list-item>          
+            </list-item>
         </experimentWideConf>
-        <description/>
         <experimentDuration>38</experimentDuration>
     </experimentDefinition>
     <environmentDefinition>
@@ -70,8 +63,8 @@
                 <stageOfLifeCycle>1</stageOfLifeCycle>
                 <timeOffFood>1</timeOffFood>
             </wormData>
-            <xCoordFromPlateCentre>43.8</xCoordFromPlateCentre>
-            <yCoorDFromPlateCentre>77.6</yCoorDFromPlateCentre>
+            <xCoordFromPlateCentre>0</xCoordFromPlateCentre>
+            <yCoorDFromPlateCentre>0</yCoorDFromPlateCentre>
             <angleRelativeXaxis>1.0</angleRelativeXaxis>
         </wormStatus>
         <plateConfiguration>
