@@ -26,7 +26,8 @@ Actually limited to admin users
 
 Go to: https://platform.si-elegans.eu/restAPI/behaviouralExperiments_nested/
 
-Makes sure that no description or about tag validated with the xsd is left empty, no <description/> or <about/> otherwise we will receive a "NULL not allowed" message
+Makes sure that no description or about tag validated with the xsd is left empty, no 
+```xml <description/> or <about/> ``` otherwise we will receive a "NULL not allowed" message
 
 Select application/xml at the bottom, Ctrl+a (select all document), Ctrl+v (paste) on the Post section and click on POST
  
