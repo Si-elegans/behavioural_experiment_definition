@@ -55,6 +55,7 @@
             <wormsInPlate>1</wormsInPlate>
         </crowding>
         <envTemp>20.0</envTemp>
+        <description>environment definition</description>
     </environmentDefinition>
     <about>pointsource</about>
     <public>False</public>
