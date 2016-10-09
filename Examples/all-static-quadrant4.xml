@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root
+    xmlns="http://www.w3schools.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3schools.com ../behaviourDesc.xsd"> 
+    <uuid>ba92ddb8-182f-488a-bba2-151a0074b7f7</uuid>
+    <experimentDefinition>
+        <interactionAtSpecificTime>
+            <list-item>
+                <mechanosensation>
+                    <plateTap>
+                        <appliedForce>0.21</appliedForce>
+                    </plateTap>
+                    <description>new mechano exact</description>
+                    <interactionType>PT</interactionType>
+                </mechanosensation>
+                <description>Plate tap</description>
+                <eventTime>2910.0</eventTime>
+                <experimentCategory>MS</experimentCategory>
+            </list-item>
+            <list-item>
+                <mechanosensation>
+                    <plateTap>
+                        <appliedForce>0.0</appliedForce>
+                    </plateTap>
+                    <description>new mechano exact</description>
+                    <interactionType>DWT</interactionType>
+                </mechanosensation>
+                <description>direct touch - platinium wire</description>
+                <eventTime>1693.0</eventTime>
+                <experimentCategory>MS</experimentCategory>
+            </list-item>
+            <list-item>
+                <mechanosensation>
+                    <plateTap>
+                        <appliedForce>0.0</appliedForce>
+                    </plateTap>
+                    <description>new mechano exact</description>
+                    <interactionType>DWT</interactionType>
+                </mechanosensation>
+                <description>Direct touch - von frey hair</description>
+                <eventTime>1427.0</eventTime>
+                <experimentCategory>MS</experimentCategory>
+            </list-item>
+            <list-item>
+                <mechanosensation>
+                    <plateTap>
+                        <appliedForce>0.0</appliedForce>
+                    </plateTap>
+                    <description>new mechano exact</description>
+                    <interactionType>DWT</interactionType>
+                </mechanosensation>
+                <description>Direct touch - eyebrow</description>
+                <eventTime>1233.0</eventTime>
+                <experimentCategory>MS</experimentCategory>
+            </list-item>
+            <list-item>
+                <chemotaxis>
+                    <dynamicDropTestConf>
+                        <chemical>
+                            <diffusionCoefficient>0.0</diffusionCoefficient>
+                            <chemical_name>biotin</chemical_name>
+                            <isVolatile>True</isVolatile>
+                            <volatilitySpeed>0.0</volatilitySpeed>
+                        </chemical>
+                        <dropQuantity>36.0</dropQuantity>
+                        <chemicalConcentration>59.8</chemicalConcentration>
+                        <xCoordFromPlateCentre>54.1</xCoordFromPlateCentre>
+                        <yCoordFromPlateCentre>37.9</yCoordFromPlateCentre>
+                    </dynamicDropTestConf>
+                    <description>new chemo exact</description>
+                    <chemotaxisType>DDT</chemotaxisType>
+                </chemotaxis>
+                <description>Dynamic Drop Test</description>
+                <eventTime>4683.0</eventTime>
+                <experimentCategory>CT</experimentCategory>
+            </list-item>
+        </interactionAtSpecificTime>
+        <interactionFromt0tot1>
+            <list-item>
+                <galvanotaxis>
+                    <electricShockConf>
+                        <amplitude>40.5</amplitude>
+                        <shockDuration>13</shockDuration>
+                        <shockFrequency>45.76</shockFrequency>
+                    </electricShockConf>
+                    <description>new galvano interval</description>
+                    <galvanotaxisType>ES</galvanotaxisType>
+                </galvanotaxis>
+                <description>electric shock</description>
+                <eventStartTime>2561.0</eventStartTime>
+                <eventStopTime>7419.0</eventStopTime>
+                <experimentCategory>GT</experimentCategory>
+            </list-item>
+            <list-item>
+                <termotaxis>
+                    <temperatureChangeInTime>
+                        <initialTemperature>11.5</initialTemperature>
+                        <finalTemperature>41.5</finalTemperature>
+                    </temperatureChangeInTime>
+                    <description>new termo interval</description>
+                    <termotaxisType>TC</termotaxisType>
+                </termotaxis>
+                <description>Temperature change in time</description>
+                <eventStartTime>4634.0</eventStartTime>
+                <eventStopTime>7913.0</eventStopTime>
+                <experimentCategory>TT</experimentCategory>
+            </list-item>
+            <list-item>
+                <phototaxis>
+                    <pointSourceLightConf>
+                        <waveLength>37.5</waveLength>
+                        <intensity>25.6</intensity>
+                        <lightingPointDistance>0.54</lightingPointDistance>
+                        <lightBeamRadius>0.25</lightBeamRadius>
+                    </pointSourceLightConf>
+                    <description>new photo interval</description>
+                    <phototaxisType>PSL</phototaxisType>
+                </phototaxis>
+                <description>Point Source Light</description>
+                <eventStartTime>7246.0</eventStartTime>
+                <eventStopTime>14290.0</eventStopTime>
+                <experimentCategory>PT</experimentCategory>
+            </list-item>
+        </interactionFromt0tot1>
+        <experimentWideConf>
+            <list-item>
+                <chemotaxis>
+                    <chemotaxisQuadrants4>
+                        <quadrant_1_Chemical>
+                            <diffusionCoefficient>0.0</diffusionCoefficient>
+                            <chemical_name>biotin</chemical_name>
+                            <isVolatile>True</isVolatile>
+                            <volatilitySpeed>0.0</volatilitySpeed>
+                        </quadrant_1_Chemical>
+                        <quadrant_2_Chemical>
+                            <diffusionCoefficient>0.0</diffusionCoefficient>
+                            <chemical_name>biotin</chemical_name>
+                            <isVolatile>True</isVolatile>
+                            <volatilitySpeed>0.0</volatilitySpeed>
+                        </quadrant_2_Chemical>
+                        <quadrant_3_Chemical>
+                            <diffusionCoefficient>0.0</diffusionCoefficient>
+                            <chemical_name>biotin</chemical_name>
+                            <isVolatile>True</isVolatile>
+                            <volatilitySpeed>0.0</volatilitySpeed>
+                        </quadrant_3_Chemical>
+                        <quadrant_4_Chemical>
+                            <diffusionCoefficient>0.0</diffusionCoefficient>
+                            <chemical_name>biotin</chemical_name>
+                            <isVolatile>True</isVolatile>
+                            <volatilitySpeed>0.0</volatilitySpeed>
+                        </quadrant_4_Chemical>
+                        <quadrantBarrierChemical>
+                            <diffusionCoefficient>0.0</diffusionCoefficient>
+                            <chemical_name>biotin</chemical_name>
+                            <isVolatile>True</isVolatile>
+                            <volatilitySpeed>0.0</volatilitySpeed>
+                        </quadrantBarrierChemical>
+                        <quadrant_1_ChemicalConcentration>0.0</quadrant_1_ChemicalConcentration>
+                        <quadrant_2_ChemicalConcentration>0.0</quadrant_2_ChemicalConcentration>
+                        <quadrant_3_ChemicalConcentration>0.0</quadrant_3_ChemicalConcentration>
+                        <quadrant_4_ChemicalConcentration>0.0</quadrant_4_ChemicalConcentration>
+                        <quadrantBarrierChemicalConcentration>0.0</quadrantBarrierChemicalConcentration>
+                    </chemotaxisQuadrants4>
+                    <osmoticRing>
+                        <ringChemical>
+                            <diffusionCoefficient>0.0</diffusionCoefficient>
+                            <chemical_name>biotin</chemical_name>
+                            <isVolatile>True</isVolatile>
+                            <volatilitySpeed>0.0</volatilitySpeed>
+                        </ringChemical>
+                        <chemicalConcentration>20.8</chemicalConcentration>
+                        <internalRadius>11.7</internalRadius>
+                        <externalRadius>28.4</externalRadius>
+                    </osmoticRing>
+                    <description>new chemo permanent</description>
+                    <chemicalCategory>CQ4</chemicalCategory>
+                </chemotaxis>
+                <description>quadrant 4</description>
+                <experimentCategory>CT</experimentCategory>
+            </list-item>
+            <list-item>
+                <termotaxis>
+                    <linearThermalGradient>
+                        <temperatureRightHorizonal>38.7</temperatureRightHorizonal>
+                        <temperatureLeftHorizontal>7.8</temperatureLeftHorizontal>
+                    </linearThermalGradient>
+                    <description>new termo permanent</description>
+                    <termotaxisType>LT</termotaxisType>
+                </termotaxis>
+                <description>Linear thermal gradient</description>
+                <experimentCategory>TT</experimentCategory>
+            </list-item>
+        </experimentWideConf>
+        <description/>
+        <experimentDuration>25503</experimentDuration>
+    </experimentDefinition>
+    <environmentDefinition>
+        <wormStatus>
+            <wormData>
+                <gender>FH</gender>
+                <age>1</age>
+                <stageOfLifeCycle>1</stageOfLifeCycle>
+                <timeOffFood>1</timeOffFood>
+            </wormData>
+            <xCoordFromPlateCentre>1.0</xCoordFromPlateCentre>
+            <yCoorDFromPlateCentre>1.0</yCoorDFromPlateCentre>
+            <angleRelativeXaxis>1.0</angleRelativeXaxis>
+        </wormStatus>
+        <plateConfiguration>
+            <Cylinder>
+                <length>10.0</length>
+                <radius>5.0</radius>
+            </Cylinder>
+            <lid>False</lid>
+            <bottomMaterial>A</bottomMaterial>
+            <dryness>0.0</dryness>
+            <shape>CY</shape>
+        </plateConfiguration>
+        <crowding>
+            <wormsDistributionInPlate>Center</wormsDistributionInPlate>
+            <wormsInPlate>1</wormsInPlate>
+        </crowding>
+        <description/>
+        <envTemp>20.0</envTemp>
+    </environmentDefinition>
+    <about/>
+    <public>False</public>
+    <public_set_date>2016-10-02T08:54:07Z</public_set_date>
+    <description>All possible behav interactions -quadrant4</description>
+</root>
