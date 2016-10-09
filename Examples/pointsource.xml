@@ -25,7 +25,7 @@
                 <experimentCategory>TT</experimentCategory>
             </list-item>
         </interactionFromt0tot1>
-        <description/>
+        <description>Experiment with one interationFromt0tot1</description>
         <experimentDuration>30000</experimentDuration>
     </experimentDefinition>
     <environmentDefinition>
@@ -54,10 +54,9 @@
             <wormsDistributionInPlate>Center</wormsDistributionInPlate>
             <wormsInPlate>1</wormsInPlate>
         </crowding>
-        <description/>
         <envTemp>20.0</envTemp>
     </environmentDefinition>
-    <about/>
+    <about>pointsource</about>
     <public>False</public>
     <public_set_date>2016-10-09T10:15:33Z</public_set_date>
     <description>pointsourceHeatAvoidance</description>

@@ -179,7 +179,7 @@
                 <experimentCategory>CT</experimentCategory>
             </list-item>
         </experimentWideConf>
-        <description/>
+        <description>experiment document</description>
         <experimentDuration>25503</experimentDuration>
     </experimentDefinition>
     <environmentDefinition>
@@ -208,10 +208,10 @@
             <wormsDistributionInPlate>Center</wormsDistributionInPlate>
             <wormsInPlate>1</wormsInPlate>
         </crowding>
-        <description/>
+        <description>environment definition</description>
         <envTemp>20.0</envTemp>
     </environmentDefinition>
-    <about/>
+    <about>document about</about>
     <public>False</public>
     <public_set_date>2016-10-02T08:54:07Z</public_set_date>
     <description>All possible behav interactions -quadrant 2</description>
