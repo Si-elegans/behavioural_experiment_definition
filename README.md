@@ -29,5 +29,20 @@ Go to: https://platform.si-elegans.eu/restAPI/behaviouralExperiments_nested/
 Makes sure that no description or about tag validated with the xsd is left empty, no 
 ```<description/> or <about/> ``` otherwise we will receive a "NULL not allowed" message
 
+Change:	
+
+```xml
+
+<root
+    xmlns="http://www.w3schools.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3schools.com behav-exp-xsd1.0.xsd">  
+
+by 
+
+<root>
+
+```
+
 Select application/xml at the bottom, Ctrl+a (select all document), Ctrl+v (paste) on the Post section and click on POST
  
